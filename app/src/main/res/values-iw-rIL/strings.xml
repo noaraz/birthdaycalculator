@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">מחשבון גילאים</string>
+    <string name="age_format">%d שנים, %d חודשים, %d ימים</string>
+    <string name="age_calculator_title">מחשבון גיל</string>
+    <string name="select_date_of_birth">תאריך לידה</string>
+    <string name="select_destination_date">תאריך עתידי</string>
+    <string name="calculate_age">חישוב גיל</string>
+    <string name="birthday_calculator_title">מחשבון יומולדת</string>
+    <string name="select_destination_age_title">גיל עתידי</string>
+    <string name="years">שנים</string>
+    <string name="months">חודשים</string>
+    <string name="calculate_birthday">חישוב יומולדת</string>
+    <string name="invalid_dates">תאריכים אינם תקינים</string>
+
+</resources>
