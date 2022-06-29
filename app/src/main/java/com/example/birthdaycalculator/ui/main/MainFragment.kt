@@ -11,6 +11,7 @@ import androidx.databinding.DataBindingUtil
 import com.example.birthdaycalculator.R
 import com.example.birthdaycalculator.databinding.MainFragmentBinding
 import com.google.android.material.datepicker.MaterialDatePicker
+import com.google.android.material.datepicker.MaterialDatePicker.INPUT_MODE_TEXT
 
 class MainFragment : Fragment() {
 
@@ -77,6 +78,7 @@ class MainFragment : Fragment() {
         val datePickerBuilder: MaterialDatePicker.Builder<Long> = MaterialDatePicker
             .Builder
             .datePicker()
+            .setInputMode(INPUT_MODE_TEXT)
             .setSelection(datePickerDefault)
             .setTitleText(title)
         val datePicker = datePickerBuilder.build()

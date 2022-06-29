@@ -31,16 +31,6 @@ class BirthdayCalculatorViewModel(application: Application) : MainCalculatorView
     val calculatedBirthday: LiveData<String?>
         get() = _calculatedBirthday
 
-//    private val _dateOfBirthMillis: MutableLiveData<Long> by lazy {
-//        MutableLiveData<Long>()
-//    }
-//    val dateOfBirthMillis: LiveData<Long>
-//        get() = _dateOfBirthMillis
-//
-//    val dateOfBirth = Transformations.map(dateOfBirthMillis) {
-//        return@map sdf.format(it)
-//    }
-
     private val _destDateMillis: MutableLiveData<Long> by lazy {
         MutableLiveData<Long>()
     }
@@ -60,7 +50,7 @@ class BirthdayCalculatorViewModel(application: Application) : MainCalculatorView
         val ageYearsLocal = destDateYears.value?.toLong()
         val ageMonthsLocal = destDateMonths.value?.toLong()
 
-        if (destDateLocal == null || ageYearsLocal == null || ageMonthsLocal == null ) {
+        if (destDateLocal == null || ageYearsLocal == null ) {
             _calculatedBirthday.value = null
             return
         }
@@ -69,7 +59,9 @@ class BirthdayCalculatorViewModel(application: Application) : MainCalculatorView
 
         val birthdayDate = destDate
             .minusYears(ageYearsLocal)
-            .minusMonths(ageMonthsLocal)
+            .apply {
+                ageMonthsLocal?.let { minusMonths(it) }
+            }
 
         _calculatedBirthday.value = birthdayDate.format(formatter)
     }
